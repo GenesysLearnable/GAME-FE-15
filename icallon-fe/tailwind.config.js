@@ -19,6 +19,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'sheet-background': "url('/white_sheet.svg')",
+      },
       fontFamily:{
         Schoolbell:['var(--fuzzy_bubbles)'],
       },

@@ -14,19 +14,30 @@ import AI_avatar8 from "@/public/AI_avatar8.svg";
 import AI_avatar9 from "@/public/AI_avatar9.svg";
 import { Button } from "@/components/ui/button";
 import TypingAnimation from "./TypingAnimation";
+import { useRouter } from "next/navigation";
 
 export default function SelectDifficulty({
   data,
   selectedAIAvatar,
   setSelectedAIAvatar,
   currentPage,
-  nextPage,
   goBack,
 }) {
+  const router = useRouter();
   const aiAvatarsbeginner = [
-    { src: AI_avatar1, alt: "AI avatar 1" },
-    { src: AI_avatar2, alt: "AI avatar 2" },
-    { src: AI_avatar3, alt: "AI avatar 3" },
+    {
+      src: AI_avatar1,
+      alt: "AI avatar 1",
+      id: '530d13fb-c7e9-4394-ab0a-cfcb82eb8b88'
+    },
+    {
+      src: AI_avatar2,
+      alt: "AI avatar 2",
+    },
+    {
+      src: AI_avatar3,
+      alt: "AI avatar 3",
+    },
   ];
 
   const aiAvatarsIntermediate = [
@@ -108,7 +119,7 @@ export default function SelectDifficulty({
       </div>
       <div className="flex flex-col items-center justify-evenly h-full w-1/3 p-8  ">
         <section className="w-full">
-          <p className="text-3xl text-center">Beginner</p>
+          <p className="text-3xl text-center pt-10">Beginner</p>
           <div className="grid gap-10 grid-cols-3 ">
             {aiAvatarsbeginner.map((avatar, index) => (
               <Image
@@ -129,7 +140,7 @@ export default function SelectDifficulty({
               />
             ))}
           </div>
-          <p className="text-3xl text-center">Intemdiate</p>
+          <p className="text-3xl text-center pt-10">Intemdiate</p>
           <div className="grid gap-10 grid-cols-3">
             {aiAvatarsIntermediate.map((avatar, index) => (
               <Image
@@ -142,7 +153,7 @@ export default function SelectDifficulty({
               />
             ))}
           </div>
-          <p className="text-3xl text-center">Advance</p>
+          <p className="text-3xl text-center pt-10">Advance</p>
           <div className="grid gap-10 grid-cols-3">
             {aiAvatarsHard.map((avatar, index) => (
               <Image
@@ -160,7 +171,9 @@ export default function SelectDifficulty({
           size="lg"
           className="w-full font-bold"
           onClick={() => {
-            // nextPage(currentPage);
+            // go to game
+
+            router.push(`/solo/game/${selectedAIAvatar.id}`);
           }}
         >
           Continue
@@ -168,5 +181,4 @@ export default function SelectDifficulty({
       </div>
     </main>
   );
-  s;
 }

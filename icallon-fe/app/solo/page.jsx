@@ -19,7 +19,6 @@ import { redirect } from "next/navigation";
 import SelectAvatar from "@/components/solo/SelectAvatar";
 import SetDisplayName from "@/components/solo/SetDisplayName";
 import SelectDifficulty from "@/components/solo/SelectDifficulty";
-import TypingAnimation from "@/components/solo/TypingAnimation";
 
 export default function Solo() {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
@@ -128,7 +127,6 @@ export default function Solo() {
           setSelectedAIAvatar={setSelectedAIAvatar}
           selectedAIAvatar={selectedAIAvatar}
           currentPage={showSelectDifficulty}
-          nextPage={nextPage}
           goBack={goBack}
         />
       )}
