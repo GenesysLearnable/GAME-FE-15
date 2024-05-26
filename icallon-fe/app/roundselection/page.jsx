@@ -1,15 +1,16 @@
+"use client"
 import React from 'react'
-import Image from "next/image";
-import male1 from "/public/maleavatar1.svg";
 import { SpeakerLoudIcon } from '@radix-ui/react-icons'
 import Link from 'next/link';
-import Avatar from '../avatar/page';
+import { Button } from "@/components/ui/button";
+
+
 export default function page() {
   return (
-    <div className='w-full h-screen flex justify-center items-center gap-40'>
+    <div className='w-full h-screen flex justify-center items-center md:gap-40'>
      <div className='bg-[#404040] h-[80vh] w-[200px]'>
 
-     <img src="/app_logo.png" className="w-full md:w-[80%] py-10 px-3 object-cover" alt="" />
+     <img src="/app_logo.png" className="w-full  z-50 md:block md:w-[80%] py-10 px-3 object-cover" alt="" />
 
           <ul className='flex flex-col justify-center items-center gap-10 p-5 '>
                <Link className='border px-10  text-white' href={"Avatar"}>Avatar</Link>
@@ -27,7 +28,7 @@ export default function page() {
 
      </div>
       <div>
-      <img src="/app_logo.png" className=" w-[15%] md:w-[20%] left-[20rem] relative md:left-[25rem] px-3 object-cover " alt="" />
+      <img src="/icalon.svg" alt="icalon" className="w-28 h-28 left-[15rem] shadow-lg shadow-cyan-500/50 mb-6 relative md:left-[35rem]" />
       <div className='bg-gradient-to-r from-[#1EA8B1] from-5% via-transparent via-50% to-[#1EA8B1] to-95%  p-5'>
 
 <h1>select number of rounds</h1>
@@ -93,12 +94,16 @@ export default function page() {
 </div>
 
 </div>
-      </div>
-       
-       <div>
-          <img src="male1" alt="" />
+
+<div className='flex justify-around items-center md:gap-[25rem] py-5'>
+<img src="/femaleavatar4.svg" alt="femaleavatar4" className="  shadow-lg shadow-cyan-500/50 " />
+
+<Button className="p-6 text-lg font-bolds shadow-lg border border-y-white shadow-white ">Continue</Button>
 
        </div>
+     
+      </div>
+       
         
        <div className='absolute -bottom-2 right-20'>
         <SpeakerLoudIcon className=" w-10 h-10 md:md-50 md:mb-80 font-extrabold text-black" />
