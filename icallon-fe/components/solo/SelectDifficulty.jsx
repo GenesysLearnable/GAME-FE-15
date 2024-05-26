@@ -28,6 +28,7 @@ export default function SelectDifficulty({
     {
       src: AI_avatar1,
       alt: "AI avatar 1",
+      id: '530d13fb-c7e9-4394-ab0a-cfcb82eb8b88'
     },
     {
       src: AI_avatar2,
@@ -172,7 +173,7 @@ export default function SelectDifficulty({
           onClick={() => {
             // go to game
 
-            router.push(`/solo/game/${data.user.id}`);
+            router.push(`/solo/game/${selectedAIAvatar.id}`);
           }}
         >
           Continue
