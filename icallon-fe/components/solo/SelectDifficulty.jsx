@@ -21,6 +21,7 @@ export default function SelectDifficulty({
   selectedAIAvatar,
   setSelectedAIAvatar,
   currentPage,
+  nextPage,
   goBack,
 }) {
   const router = useRouter();
@@ -172,8 +173,7 @@ export default function SelectDifficulty({
           className="w-full font-bold"
           onClick={() => {
             // go to game
-
-            router.push(`/solo/game/${selectedAIAvatar.id}`);
+            nextPage(currentPage);
           }}
         >
           Continue

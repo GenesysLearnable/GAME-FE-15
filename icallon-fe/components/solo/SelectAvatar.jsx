@@ -10,6 +10,10 @@ export default function SelectAvatar({
   selectedAvatar,
   avatars,
 }) {
+
+  function setAvatar(avatar){
+    setSelectedAvatar(avatar);
+  }
   return (
     <main className="flex flex-col md:flex-row items-center justify-around lg:max-w-6xl lg:px-2">
       {selectedAvatar === null ? (
@@ -65,9 +69,8 @@ export default function SelectAvatar({
               key={index}
               src={avatar.src}
               alt={avatar.alt}
-              priority={true}
-              className="w-28 h-28 lg:w-36 lg:h-36 object-contain cursor-pointer mx-auto bg-[#8FD4D8] hover:border-[#FC9A02] border"
-              onClick={() => setSelectedAvatar(avatar)}
+              className="w-60 h-36 object-contain cursor-pointer bg-[#8FD4D8] hover:border-[#FC9A02] border"
+              onClick={() => setAvatar(avatar) }
             />
           ))}
         </div>

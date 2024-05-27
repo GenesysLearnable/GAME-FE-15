@@ -70,7 +70,7 @@ export default function SoloGame({ params }) {
           Can't accesss selected an opponent. pls go back and select an opponent
         </div>
       ) : (
-        <main className="flex flex-col justify-center items-center h-screen w-[70%]">
+        <main className="flex flex-col justify-center items-center h-screen w-[70%] p-[3%]">
           <div className="flex h-[20%] w-full justify-end px-4 ">
             <Image
               src={playerdata.selectedAIOpponent[0].src}
@@ -78,7 +78,7 @@ export default function SoloGame({ params }) {
               className="h-full object-cover;"
             />
           </div>
-          <div className=" flex flex-col flex-1 h-[40%] justify-start w-full bg-sheet-background bg-cover">
+          <div className=" flex flex-col flex-auto h-[40%] justify-start w-full bg-sheet-background bg-cover">
             <div className="flex justify-between w-full">
               <div className="w-2/3 px-[15%]">
                 <p className="flex text-3xl  w-full  py-[1%]">
@@ -113,11 +113,17 @@ export default function SoloGame({ params }) {
               ))}
             </div>
           </div>
-          <div className="flex h-[20%] w-full px-4">
+          <div className="flex h-[20%] justify-between w-full px-4">
             <Image
               src={data?.user.avatar.src}
               className=" h-full object-cover;"
             />
+            <div className="flex flex-col justify-around items-end h-full">
+              <Button size="lg" className="">
+                Submit response
+              </Button>
+              <SpeakerLoudIcon className="w-1/2 h-1/2 " />
+            </div>
           </div>
         </main>
       )}
