@@ -41,7 +41,7 @@ export default function SoloGame({ params }) {
   function handleCloseDialog() {
     setRandomletter(getRandomLetter());
     setIsDialogOpen(false);
-    // startTimer();
+    startTimer();
   }
 
   function getRandomLetter() {
