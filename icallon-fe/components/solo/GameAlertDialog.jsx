@@ -9,15 +9,14 @@ import {
   AlertDialogCancel,
 } from "@/components/ui/alert-dialog";
 
-export const GameAlertDialog = ({ open, onAccept }) => {
+export const GameAlertDialog = ({ open, onAccept, round }) => {
   return (
     <AlertDialog open={open}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Start Game?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. It will permanently delete the data
-            from the server.
+            Click continue to start round {round}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogCancel onClick={onAccept}>Continue</AlertDialogCancel>

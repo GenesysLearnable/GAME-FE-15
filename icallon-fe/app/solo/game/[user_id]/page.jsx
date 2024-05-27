@@ -64,7 +64,7 @@ export default function SoloGame({ params }) {
 
   return (
     <div className="flex w-screen h-screen justify-center items-center">
-      <GameAlertDialog open={isDialogOpen} onAccept={handleCloseDialog} />
+      <GameAlertDialog open={isDialogOpen} round={playerdata.currentRound} onAccept={handleCloseDialog} />
       {params.user_id !== playerdata.selectedAIOpponent[0].id ? (
         <div className="text-2xl">
           Can't accesss selected an opponent. pls go back and select an opponent
