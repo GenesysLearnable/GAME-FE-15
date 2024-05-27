@@ -17,17 +17,8 @@ export const useGameSettingsStore = create((set) => ({
   },
   userSelected: {
     currentRound: 1,
-    selectedRound: 3,
-    selectedCategory: [
-      "Name",
-      "Animal",
-      "Place",
-      "Things",
-      "Books",
-      "Celebrities",
-      "Fruits",
-      "Subject",
-    ],
+    selectedRound: null,
+    selectedCategory: [],
     selectedAIOpponent: [
       {
         src: AI_avatar1,
@@ -51,7 +42,6 @@ export const useGameSettingsStore = create((set) => ({
         ...state.userSelected,
         selectedRound: userSettings.selectedRound,
         selectedCategory: userSettings.selectedCategory,
-        selectedAIOpponent: userSettings.selectedAIOpponent,
       },
     })),
   setCurrentRound: (newRound) =>
@@ -59,6 +49,19 @@ export const useGameSettingsStore = create((set) => ({
       userSelected: {
         ...state.userSelected,
         currentRound: newRound,
+      },
+    })),
+    setSelectedRound: (newRound) =>
+      set((state) => ({
+        userSelected: {
+          ...state.userSelected,
+          selectedRound: newRound,
+        },
+      })),
+    setCategories: (categories) => set((state) => ({
+      userSelected: {
+        ...state.userSelected,
+        selectedCategory: categories,
       },
     })),
 }));

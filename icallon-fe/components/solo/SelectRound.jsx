@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo2 from "/public/app_logo2.svg";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -22,18 +22,28 @@ export default function SelectRound({
   const router = useRouter();
   const setGameSettings = useGameSettingsStore((state) => state.gameSettings);
   const playerdata = useGameSettingsStore((state) => state.userSelected);
-  const currentRound = useGameSettingsStore((state) => state.setCurrentRound);
+  const selectedRound = useGameSettingsStore((state) => state.setSelectedRound);
+  const [categories, setCategories] = useState([]);
+  const [rounds, setRounds] = useState(0);
+  const setUserCategories = useGameSettingsStore(
+    (state) => state.setCategories
+  );
 
   function handleRadioChange() {
-    const s = event.target.value;
-    console.log(s);
+    const value = event.target.value;
+    setRounds(value);
+    console.log("norm: ",rounds )
   }
 
   function handleCategories(data, id) {
-    const y = event.target.value;
-    console.log(y);
-    console.log(id, ":", data);
-    console.log(event.target.id);
+    const value = event.target.value;
+
+    console.log("data:", data);
+    if (data === true) {
+      setCategories([...categories, value]);
+    } else {
+      setCategories(categories.filter((e) => e !== value));
+    }
   }
   return (
     <main className=" flex justify-between items-center h-screen w-[80%]">
@@ -125,6 +135,8 @@ export default function SelectRound({
               size="lg"
               on
               onClick={() => {
+                setUserCategories(categories);
+                selectedRound(rounds);
                 router.push(`/solo/game/${selectedAIAvatar.id}`);
               }}
             >
