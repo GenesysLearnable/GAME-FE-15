@@ -19,6 +19,7 @@ import { redirect } from "next/navigation";
 import SelectAvatar from "@/components/solo/SelectAvatar";
 import SetDisplayName from "@/components/solo/SetDisplayName";
 import SelectDifficulty from "@/components/solo/SelectDifficulty";
+import SelectRound from "@/components/solo/SelectRound";
 
 export default function Solo() {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
@@ -26,6 +27,7 @@ export default function Solo() {
   const [showSelectAvatar, setShowSelectAvatar] = useState(true);
   const [showSetDisplayName, setshowSetDisplayName] = useState(false);
   const [showSelectDifficulty, setSelectDifficulty] = useState(false);
+  const [showSelectRounds, setShowSelectRounds] = useState(false);
   const { data, status, update } = useSession({
     required: true,
     onUnauthenticated() {
@@ -51,11 +53,19 @@ export default function Solo() {
         setshowSetDisplayName(false);
         setShowSelectAvatar(true);
         setSelectDifficulty(false);
+        setShowSelectRounds(false);
         break;
       case showSelectDifficulty:
         setSelectDifficulty(false);
         setshowSetDisplayName(true);
         setShowSelectAvatar(false);
+        setShowSelectRounds(false);
+        break;
+      case showSelectRounds:
+        setSelectDifficulty(true);
+        setshowSetDisplayName(false);
+        setShowSelectAvatar(false);
+        setShowSelectRounds(false);
         break;
     }
   }
@@ -67,22 +77,21 @@ export default function Solo() {
         setShowSelectAvatar(false);
         setshowSetDisplayName(true);
         setSelectDifficulty(false);
+        setShowSelectRounds(false);
         break;
       case showSetDisplayName:
         setShowSelectAvatar(false);
         setshowSetDisplayName(false);
         setSelectDifficulty(true);
         break;
+      case showSelectDifficulty:
+        setShowSelectAvatar(false);
+        setshowSetDisplayName(false);
+        setSelectDifficulty(false);
+        setShowSelectRounds(true);
+        break;
     }
   }
-  const listOfData = [
-    "the player avatar",
-    "the player username",
-    "icalon avatar",
-    "icalon player level",
-    "game selection options",
-  ];
-  console.log(listOfData);
 
   if (status === "loading") {
     return <div>Loading....</div>;
@@ -127,6 +136,16 @@ export default function Solo() {
           setSelectedAIAvatar={setSelectedAIAvatar}
           selectedAIAvatar={selectedAIAvatar}
           currentPage={showSelectDifficulty}
+          nextPage={nextPage}
+          goBack={goBack}
+        />
+      )}
+      {showSelectRounds && (
+        <SelectRound
+          data={data}
+          setSelectedAIAvatar={setSelectedAIAvatar}
+          selectedAIAvatar={selectedAIAvatar}
+          currentPage={showSelectRounds}
           goBack={goBack}
         />
       )}
