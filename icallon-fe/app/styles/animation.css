@@ -1,0 +1,13 @@
+/* styles/animations.css */
+@keyframes colorChange {
+    0%, 100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(150%) sepia(1) hue-rotate(-50deg);
+    }
+}
+
+.animate-color-change {
+    animation: colorChange 2s infinite;
+}
